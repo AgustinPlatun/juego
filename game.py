@@ -10,10 +10,29 @@ failures = 0
 # Lista para almacenar las letras adivinadas
 guessed_letters = []
 
+#Menu selector de niveles
 print("¡Bienvenido al juego de adivinanzas!")
-print("Estoy pensando en una palabra. ¿Puedes adivinar cuál es?")
+print("Ingresar que nivel desea jugar:")
+print("Ingresar 1 para el nivel FACIL")
+print("Ingresar 2 para el nivel INTERMEDIO")
+print("Ingresar 3 para el nivel DIFICIL")
+nivel = int(input("Ingresar nivel: "))
 
-word_displayed = "_" * len(secret_word)
+print("Estoy pensando en una palabra. ¿Puedes adivinar cuál es?")
+if nivel== 1:
+    guessed_letters = ["a","e","i","o","u","á","é","í","ó","ú"]
+    letters = []
+    for i in secret_word:
+        if i in guessed_letters:
+            letters.append(i)
+        else:
+            letters.append("_")
+    word_displayed = "".join(letters)
+elif nivel == 2:
+    word_displayed =secret_word[0] + "_" * (len(secret_word)-2) + secret_word[-1]
+elif nivel == 3:
+    word_displayed ="_" * len(secret_word)
+
 # Mostrarla palabra parcialmente adivinada
 print(f"Palabra: {word_displayed}")
 
