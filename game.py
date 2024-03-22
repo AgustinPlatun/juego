@@ -61,9 +61,18 @@ while failures != 5:
             letters.append(letter)
         else:
             letters.append("_")
+    if nivel == 2:
+        letters.pop(0)
+        letters.pop(-1)
+        letters.insert(0,secret_word[0])
+        letters.append(secret_word[-1])
+        word_displayed = "".join(letters)
+        print(f"Palabra: {word_displayed}")
+    else:
+        word_displayed = "".join(letters)
+        print(f"Palabra: {word_displayed}")
+    
 
-    word_displayed = "".join(letters)
-    print(f"Palabra: {word_displayed}")
     # Verificar si se ha adivinado la palabra completa
     if word_displayed == secret_word:
         print(f"¡Felicidades! Has adivinado la palabra secreta: {secret_word}")
